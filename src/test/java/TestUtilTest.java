@@ -2,6 +2,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
@@ -21,9 +22,21 @@ public class TestUtilTest {
         String content = scanner.nextLine();
         String author = scanner.nextLine();
 
-        assertThat(cmd).isEqualTo("등록;");
-        assertThat(cmd).isEqualTo("현재를 사랑하라;");
-        assertThat(cmd).isEqualTo("작자미상;");
+        assertThat(cmd).isEqualTo("등록");
+        assertThat(cmd).isEqualTo("현재를 사랑하라");
+        assertThat(cmd).isEqualTo("작자미상");
+    }
+
+    @Test
+    @DisplayName("TestUtil.setOutByteArray()")
+    void t2(){
+        ByteArrayOutputStream byteArrayOutputStream = TestUtil.setOutByteArray();
+
+        System.out.println("안녕하세요");
+
+        String rst = byteArrayOutputStream.toString();
+
+        assertThat(rst).isEqualTo("안녕하세요");
     }
 
 //    @Test
